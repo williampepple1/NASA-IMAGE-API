@@ -15,7 +15,21 @@ function SearchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [startYear, setStartYear] = useState<Date | null>(new Date());
   const [endYear, setEndYear] = useState<Date | null>(new Date());
+  const [collections, setCollections] = useState([]);
+  const [searchquery, setSearchquery] = useState('');
   const [loading, setLoading] = useState(false)
+  
+  const updateSearchquery = (e: any) => {
+    setSearchquery(e.target.value);
+  }
+
+  const updateStartYear =(e: any) => {
+      setStartYear(e.target.value);
+  }
+
+  const updateEndYear = (e:any ) => {
+      setEndYear(e.target.value);
+  }
 
   return (
     <div className="bg-white">
