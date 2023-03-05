@@ -203,8 +203,8 @@ const runSearch = () => {
                 </h1>
               
                 <div className="flex lg:flex-1 sm:flex-col md:flex-row justify-center lg:justify-end">
-                 <DatePicker selected={startYear} onChange={() => setStartYear(startYear)} showYearPicker dateFormat="yyyy"/>
-                 <DatePicker selected={endYear} onChange={() => setEndYear(endYear)} showYearPicker dateFormat="yyyy"/>
+                 <DatePicker selected={startYear} onChange={(date) => setStartYear(date)} showYearPicker dateFormat="yyyy"/>
+                 <DatePicker selected={endYear} onChange={(date) => setEndYear(date)} showYearPicker dateFormat="yyyy"/>
                     <div className="w-full px-2 lg:px-6">
                       <label htmlFor="search" className="sr-only">
                         Search Images
