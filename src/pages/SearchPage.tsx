@@ -4,7 +4,8 @@ import { Bars3Icon,  MagnifyingGlassIcon,  XMarkIcon } from '@heroicons/react/24
 import nasa from '../assets/nasa.png'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import {toast} from 'react-toastify'
+import axios from 'axios';
 const navigation = [
   { name: 'NASA', href: '#' }
 ]
@@ -13,11 +14,14 @@ const navigation = [
 
 function SearchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [startYear, setStartYear] = useState<Date | null>(new Date());
-  const [endYear, setEndYear] = useState<Date | null>(new Date());
+  const [startYear, setStartYear] = useState<Date>(new Date());
+  const [endYear, setEndYear] = useState<Date>(new Date());
   const [collections, setCollections] = useState([]);
   const [searchquery, setSearchquery] = useState('');
   const [loading, setLoading] = useState(false)
+
+  console.log(endYear)
+  console.log(startYear)
   
   const updateSearchquery = (e: any) => {
     setSearchquery(e.target.value);
@@ -31,6 +35,55 @@ function SearchPage() {
       setEndYear(e.target.value);
   }
 
+
+  const validate = () => {
+    if(searchquery === ""){
+        toast.error('Input search word please');
+        return 0;
+    }
+    else if(endYear <= startYear){
+        toast.error('End year can not be eailer than Start year')
+        return 0;
+    }
+    else if(endYear.getFullYear() < 0 || startYear.getFullYear() < 0 || startYear.getFullYear() >= new Date().getFullYear() || endYear.getFullYear() > new Date().getFullYear()){
+      toast.error('Put Year Correctly');
+        return 0;
+    }
+    else{
+        console.log("fetch data")
+        runSearch();
+    }
+}
+
+const runSearch = () => {
+  let fetchURL = '';
+  if(startYear.getFullYear() === null && endYear.getFullYear() === null)
+  fetchURL = `https://images-api.nasa.gov/search?q=${searchquery}&media_type=image`;
+  else if(startYear.getFullYear() === null)
+  fetchURL = `https://images-api.nasa.gov/search?q=${searchquery}&year_end=${endYear.getFullYear()}&media_type=image`;
+  else if(endYear.getFullYear() === null)
+  fetchURL = `https://images-api.nasa.gov/search?q=${searchquery}&year_start=${startYear.getFullYear()}&media_type=image`;
+  else 
+  fetchURL = `https://images-api.nasa.gov/search?q=${searchquery}&year_start=${startYear.getFullYear()}&year_end=${endYear.getFullYear()}&media_type=image`;
+
+  setLoading(true)
+  axios
+      .get(
+          fetchURL
+      )
+      .then(response => {
+          console.log(fetchURL)
+          setCollections(response.data.collection.items);
+          setLoading(false);
+          console.log(response.data.collection.items);
+      })
+      .catch(error => {
+          console.log(
+          "Encountered an error with fetching and parsing data",
+          error
+          );
+      });
+}
   return (
     <div className="bg-white">
       {/* Header */}
@@ -150,8 +203,8 @@ function SearchPage() {
                 </h1>
               
                 <div className="flex lg:flex-1 sm:flex-col md:flex-row justify-center lg:justify-end">
-                 <DatePicker selected={startYear} onChange={(date) => setStartYear(date)} />
-                 <DatePicker selected={endYear} onChange={(date) => setEndYear(date)} />
+                 <DatePicker selected={startYear} onChange={() => setStartYear(startYear)} showYearPicker dateFormat="yyyy"/>
+                 <DatePicker selected={endYear} onChange={() => setEndYear(endYear)} showYearPicker dateFormat="yyyy"/>
                     <div className="w-full px-2 lg:px-6">
                       <label htmlFor="search" className="sr-only">
                         Search Images
@@ -167,6 +220,8 @@ function SearchPage() {
                           className="block w-full rounded-md border-0 bg-indigo-400 bg-opacity-25 py-1.5 pl-10 pr-3 text-indigo-100 placeholder:text-indigo-200 focus:bg-white focus:text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:text-sm sm:leading-6"
                           placeholder="Search Images"
                           type="search"
+                          value={searchquery}
+                          onChange={updateSearchquery}
                         />
                       </div>
                      
