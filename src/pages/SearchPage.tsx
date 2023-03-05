@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
-import { Bars3Icon, MinusSmallIcon, PlusSmallIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon,  MagnifyingGlassIcon,  XMarkIcon } from '@heroicons/react/24/outline'
 import nasa from '../assets/nasa.png'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const navigation = [
   { name: 'NASA', href: '#' }
@@ -11,6 +13,9 @@ const navigation = [
 
 function SearchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [startYear, setStartYear] = useState<Date | null>(new Date());
+  const [endYear, setEndYear] = useState<Date | null>(new Date());
+  const [loading, setLoading] = useState(false)
 
   return (
     <div className="bg-white">
@@ -126,13 +131,32 @@ function SearchPage() {
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
               </div>
               <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                  NASA Image Search Portal
+                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl mb-4">
+                  NASA Image Library
                 </h1>
               
-                <div className="mt-10 flex items-center justify-center gap-x-6">
-               
-          
+                <div className="flex lg:flex-1 sm:flex-col md:flex-row justify-center lg:justify-end">
+                 <DatePicker selected={startYear} onChange={(date) => setStartYear(date)} />
+                 <DatePicker selected={endYear} onChange={(date) => setEndYear(date)} />
+                    <div className="w-full px-2 lg:px-6">
+                      <label htmlFor="search" className="sr-only">
+                        Search Images
+                      </label>
+                      <div className="relative text-indigo-200 focus-within:text-gray-400">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                          <MagnifyingGlassIcon className="h-5 w-5" aria-hidden="true" />
+                        </div>
+      
+                        <input
+                          id="search"
+                          name="search"
+                          className="block w-full rounded-md border-0 bg-indigo-400 bg-opacity-25 py-1.5 pl-10 pr-3 text-indigo-100 placeholder:text-indigo-200 focus:bg-white focus:text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                          placeholder="Search Images"
+                          type="search"
+                        />
+                      </div>
+                     
+                    </div>              
                 </div>
               </div>
             </div>
