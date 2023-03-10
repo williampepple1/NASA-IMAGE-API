@@ -6,10 +6,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {toast} from 'react-toastify'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 const navigation = [
   { name: 'NASA', href: '#' }
 ]
 
+type collectionDataType = {
+  href: string;
+  links: any;
+  data: any;
+}
 
 
 function SearchPage() {
@@ -17,26 +23,19 @@ function SearchPage() {
   const [startYear, setStartYear] = useState<Date>(new Date());
   const [endYear, setEndYear] = useState<Date>(new Date());
   const [collections, setCollections] = useState([]);
-  const [searchquery, setSearchquery] = useState('');
+  const [searchquery, setSearchquery] = useState<string>('');
   const [loading, setLoading] = useState(false)
 
   console.log(endYear.getFullYear())
   console.log(startYear.getFullYear())
+  console.log(searchquery )
   
   const updateSearchquery = (e: any) => {
     setSearchquery(e.target.value);
   }
 
-  const updateStartYear =(e: any) => {
-      setStartYear(e.target.value);
-  }
 
-  const updateEndYear = (e:any ) => {
-      setEndYear(e.target.value);
-  }
-
-
-  const validate = () => {
+  const validateSearch = () => {
     if(searchquery === ""){
         toast.error('Input search word please');
         return 0;
@@ -294,6 +293,27 @@ const runSearch = () => {
               </defs>
             </svg>
           </div>
+        </div>
+
+        <div className=''>
+
+          {
+
+            collections.length > 0 ? 
+              collections.map((collection: collectionDataType , index) => (
+                <Link to="show" state = {{data : collection.data[0], jsonURL: collection.href }} 
+                key= {index}>
+                <img 
+                  src={`${collection.links[0].href}?w=248&fit=crop&auto=format`}
+                  srcSet={`${collection.links[0].href}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  alt={collection.data[0].title}
+                loading='lazy'
+                />
+                </Link>
+              ))
+              : <></>
+          }
+
         </div>
 
   
