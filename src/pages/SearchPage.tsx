@@ -201,7 +201,7 @@ const runSearch = () => {
                   NASA Image Library
                 </h1>
               
-                <div className="flex lg:flex-col sm:flex-col md:flex-col justify-center">
+                <div className="flex flex-col justify-center">
                   <div className='flex flex-row my-4'>
                  <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md'/>
                  <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md'/>
