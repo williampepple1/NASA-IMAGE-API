@@ -203,8 +203,8 @@ const runSearch = () => {
               
                 <div className="flex flex-col justify-center">
                   <div className='flex flex-row my-4'>
-                 <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md'/>
-                 <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md'/>
+                 <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md w-1/2'/>
+                 <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md w-1/2'/>
                  </div>
                     <div className="w-full px-2 lg:px-6">
                       <label htmlFor="search" className="sr-only">
