@@ -28,7 +28,7 @@ function SearchPage() {
 
   console.log(endYear.getFullYear())
   console.log(startYear.getFullYear())
-  console.log(searchquery )
+  console.log(searchquery)
   
   const updateSearchquery = (e: any) => {
     setSearchquery(e.target.value);
@@ -315,11 +315,13 @@ const runSearch = () => {
                   src={`${collection.links[0].href}?w=248&fit=crop&auto=format`}
                   srcSet={`${collection.links[0].href}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={collection.data[0].title}
-                loading='lazy'
+                  loading='lazy'
                 />
                 </Link>
+                
               ))
-              : <></>
+              : <div></div>
+              
           }
 
         </div>
