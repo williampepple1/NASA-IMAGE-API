@@ -27,21 +27,21 @@ function SearchPage() {
   console.log(startYear.getFullYear())
   console.log(searchquery)
 
-  if (loading) {
-    return(
-     <div className='grid h-screen place-items-center'>
-      <ColorRing
-        visible={true}
-        height="100"
-        width="100"
-        ariaLabel="blocks-loading"
-        wrapperStyle={{}}
-        wrapperClass="blocks-wrapper"
-        colors={['#b8c480', '#B2A3B5', '#F4442E', '#51E5FF', '#429EA6']}
-        />
-     </div>
-    )
-  }
+  // if (loading == true) {
+  //   return(
+  //    <div className='grid h-screen place-items-center'>
+  //     <ColorRing
+  //       visible={true}
+  //       height="100"
+  //       width="100"
+  //       ariaLabel="blocks-loading"
+  //       wrapperStyle={{}}
+  //       wrapperClass="blocks-wrapper"
+  //       colors={['#b8c480', '#B2A3B5', '#F4442E', '#51E5FF', '#429EA6']}
+  //       />
+  //    </div>
+  //   )
+  // }
   
   const updateSearchquery = (e: any) => {
     setSearchquery(e.target.value);
