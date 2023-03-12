@@ -11,11 +11,12 @@ type collectionDataType = {
   keywords: string[];
 }
 
-function ShowResults(props: collectionDataType) {
+function ShowResults() {
   const location = useLocation()
   const data = location.state.data;
   const jsonURL = location.state.jsonURL;
   const [image, setImage] = useState('')
+
   useEffect(()=>{
     axios
       .get(jsonURL)
@@ -31,6 +32,7 @@ function ShowResults(props: collectionDataType) {
       description: {data.description}
       Keywords : {Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}
       Date : {data.date_created}
+      <img src={image} alt="Nasa Image"/>
     </div>
   )
 }

@@ -11,11 +11,11 @@ const navigation = [
   { name: 'NASA', href: '#' }
 ]
 
-type collectionDataType = {
-  href: string;
-  links: any;
-  data: any;
-}
+// type collectionDataType = {
+//   href: string;
+//   links: any;
+//   data: any;
+// }
 
 
 function SearchPage() {
@@ -223,6 +223,14 @@ const runSearch = () => {
                           onChange={updateSearchquery}
                         />
                       </div>
+
+                      <button
+                      type="button"
+                      className=' bg-indigo-400 bg-opacity-25 py-1.5 pl-10 pr-3 text-indigo-100'
+                      onClick={validateSearch}
+                      >
+                      Search
+                      </button>
                      
                     </div>              
                 </div>
@@ -300,8 +308,8 @@ const runSearch = () => {
           {
 
             collections.length > 0 ? 
-              collections.map((collection: collectionDataType , index) => (
-                <Link to="show" state = {{data : collection.data[0], jsonURL: collection.href }} 
+              collections.map((collection: any, index) => (
+                <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
                 key= {index}>
                 <img 
                   src={`${collection.links[0].href}?w=248&fit=crop&auto=format`}

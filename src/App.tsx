@@ -9,7 +9,7 @@ function App() {
         <Router>
           <Routes>
               <Route path='/' element={<SearchPage />}/>
-              <Route path='/search-results' element={<ShowResults />
+              <Route path='/search-results' element={<ShowResults/>
             }/>
           </Routes>
         </Router>
