@@ -201,7 +201,7 @@ const runSearch = () => {
                   NASA Image Library
                 </h1>
               
-                <div className="flex lg:flex-1 sm:flex-col md:flex-row justify-center lg:justify-end">
+                <div className="flex lg:flex-col sm:flex-col md:flex-col justify-center">
                  <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy"/>
                  <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy"/>
                     <div className="w-full px-2 lg:px-6">
@@ -226,7 +226,7 @@ const runSearch = () => {
 
                       <button
                       type="button"
-                      className=' bg-indigo-400 bg-opacity-25 py-1.5 pl-10 pr-3 text-indigo-100'
+                      className='rounded-md bg-indigo-400 bg-opacity-25 py-1.5 mt-8 px-8 text-indigo-100 text-center'
                       onClick={validateSearch}
                       >
                       Search
