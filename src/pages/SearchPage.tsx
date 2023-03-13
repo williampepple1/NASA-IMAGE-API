@@ -3,12 +3,11 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon,  MagnifyingGlassIcon,  XMarkIcon } from '@heroicons/react/24/outline'
 import nasa from '../assets/nasa.png'
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import {toast} from 'react-toastify'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner'
-
+import "react-datepicker/dist/react-datepicker.css";
 const navigation = [
   { name: 'NASA', href: '#' }
 ]
@@ -50,15 +49,15 @@ function SearchPage() {
 
   const validateSearch = () => {
     if(searchquery === ""){
-        toast.error('Input search word please');
+        toast.error('Kindly Input search word');
         return 0;
     }
     else if(endYear <= startYear){
-        toast.error('End year can not be eailer than Start year')
+        toast.error('End year can not be earlier than Start year')
         return 0;
     }
-    else if(endYear.getFullYear() < 0 || startYear.getFullYear() < 0 || startYear.getFullYear() >= new Date().getFullYear() || endYear.getFullYear() > new Date().getFullYear()){
-      toast.error('Put Year Correctly');
+    else if(endYear.getFullYear() < 0 || startYear.getFullYear() < 0 || startYear.getFullYear() > new Date().getFullYear() || endYear.getFullYear() > new Date().getFullYear()){
+      toast.error('Please Put Year Correctly');
         return 0;
     }
     else{
