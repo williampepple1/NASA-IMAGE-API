@@ -52,7 +52,7 @@ function SearchPage() {
         toast.error('Kindly Input search word');
         return 0;
     }
-    else if(endYear <= startYear){
+    else if(endYear < startYear){
         toast.error('End year can not be earlier than Start year')
         return 0;
     }
