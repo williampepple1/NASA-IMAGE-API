@@ -317,7 +317,7 @@ const runSearch = () => {
           </div>
         </div>
 
-        <div className=''>
+        <div className='grid grid-cols-3'>
 
           {
 
@@ -326,10 +326,11 @@ const runSearch = () => {
                 <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
                 key= {index}>
                 <img 
-                  src={`${collection.links[0].href}?w=248&fit=crop&auto=format`}
-                  srcSet={`${collection.links[0].href}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${collection.links[0].href}?h=248&fit=crop&auto=format`}
+                  srcSet={`${collection.links[0].href}?h=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={collection.data[0].title}
                   loading='lazy'
+                  className='rounded-lg h-64 my-2'
                 />
                 </Link>
                 
