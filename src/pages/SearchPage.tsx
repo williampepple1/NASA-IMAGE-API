@@ -322,7 +322,6 @@ const runSearch = () => {
         <div className='grid grid-cols-3'>
 
           {
-
             collections.length > 0 ? 
               collections.map((collection: any, index) => (
                 <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
@@ -337,8 +336,7 @@ const runSearch = () => {
                 </Link>
                 
               ))
-              : <div></div>
-              
+              : <div></div>  
           }
 
         </div>

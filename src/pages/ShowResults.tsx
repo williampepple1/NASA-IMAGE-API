@@ -25,14 +25,14 @@ function ShowResults(props: any) {
         })
   },[])
   return (
-    <div>
+    <div className='flex sm:flex-col items-center justify-center '>
       title: {data.title}
       location: {data.location}
       photographer: {data.photographer}
       description: {data.description}
       Keywords : {Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}
       Date : {data.date_created}
-      <img src={image} alt="Nasa Image"/>
+      <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen'/>
     </div>
   )
 }
