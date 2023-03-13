@@ -11,7 +11,7 @@ type collectionDataType = {
   keywords: string[];
 }
 
-function ShowResults() {
+function ShowResults(props: any) {
   const location = useLocation()
   const data = location.state.data;
   const jsonURL = location.state.jsonURL;
