@@ -37,7 +37,7 @@ function ShowResults(props: any) {
               <p><span className='text-bold'>Keywords : </span>{Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}</p> 
               <p> <span className='text-bold'>Date :</span> {data.date_created}</p> 
             </div> 
-              <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen lg:mt-8'/>
+              <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen mt-8'/>
         </div>
     </div>
   )
