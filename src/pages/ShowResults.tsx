@@ -25,13 +25,15 @@ function ShowResults(props: any) {
         })
   },[])
   return (
-    <div className='flex sm:flex-col items-center justify-center '>
-      title: {data.title}
-      location: {data.location}
-      photographer: {data.photographer}
-      description: {data.description}
-      Keywords : {Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}
-      Date : {data.date_created}
+    <div className='flex flex-col m-8 lg:flex-row  items-center justify-center '>
+    <div className='flex flex-col lg:mr-8 '>
+      <p ><span className='text-bold'>Title:</span> {data.title}</p> 
+      <p><span className='text-bold'>Location:</span> {data.location}</p>  
+       <p><span className='text-bold'>Photographer: </span>{data.photographer}</p> 
+       <p><span className='text-bold text-justify text'>Description:</span> {data.description}</p> 
+       <p><span className='text-bold'>Keywords : </span>{Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}</p> 
+      <p> <span className='text-bold'>Date :</span> {data.date_created}</p> 
+    </div> 
       <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen'/>
     </div>
   )
