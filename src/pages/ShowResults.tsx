@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react';
 import {Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import Header from '../components/Header';
 
 type collectionDataType = {
   photographer: string;
@@ -25,16 +26,19 @@ function ShowResults(props: any) {
         })
   },[])
   return (
-    <div className='flex flex-col m-8 lg:flex-row  items-center justify-center '>
-    <div className='flex flex-col lg:mr-8 '>
-      <p ><span className='text-bold'>Title:</span> {data.title}</p> 
-      <p><span className='text-bold'>Location:</span> {data.location}</p>  
-       <p><span className='text-bold'>Photographer: </span>{data.photographer}</p> 
-       <p><span className='text-bold text-justify text'>Description:</span> {data.description}</p> 
-       <p><span className='text-bold'>Keywords : </span>{Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}</p> 
-      <p> <span className='text-bold'>Date :</span> {data.date_created}</p> 
-    </div> 
-      <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen'/>
+    <div className='flex flex-col bg-slate-300'>
+        <Header/>
+        <div className='flex flex-col m-8 lg:flex-row  items-center justify-center '>
+            <div className='flex flex-col lg:mr-8 mt-12'>
+              <p ><span className='text-bold'>Title:</span> {data.title}</p> 
+              <p><span className='text-bold'>Location:</span> {data.location}</p>  
+              <p><span className='text-bold'>Photographer: </span>{data.photographer}</p> 
+              <p><span className='text-bold text-justify text'>Description:</span> {data.description}</p> 
+              <p><span className='text-bold'>Keywords : </span>{Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}</p> 
+              <p> <span className='text-bold'>Date :</span> {data.date_created}</p> 
+            </div> 
+              <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen lg:mt-8'/>
+        </div>
     </div>
   )
 }
