@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon,  MagnifyingGlassIcon,  XMarkIcon } from '@heroicons/react/24/outline'
 import nasa from '../assets/nasa.png'
-import DatePicker from "react-datepicker";
-import { Link } from 'react-router-dom';
-import "react-datepicker/dist/react-datepicker.css";
+
+
 const navigation = [
   { name: 'NASA', href: '#' }
 ]

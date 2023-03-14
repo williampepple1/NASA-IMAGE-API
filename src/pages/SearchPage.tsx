@@ -97,12 +97,9 @@ const runSearch = () => {
       });
 }
   return (
-    <div className="bg-white">
-      {/* Header */}
-
+    <div className="bg-white ">
       <Header />
-
-      <main>
+      <main className='h-screen'>
         {collections.length === 0 &&
           <div className="relative isolate overflow-hidden bg-gray-900 pt-14 pb-16 sm:pb-20">
           <img
