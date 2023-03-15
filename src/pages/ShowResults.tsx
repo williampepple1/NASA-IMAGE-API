@@ -33,11 +33,11 @@ function ShowResults(props: any) {
               <p ><span className='text-bold'>Title:</span> {data.title}</p> 
               <p><span className='text-bold'>Location:</span> {data.location}</p>  
               <p><span className='text-bold'>Photographer: </span>{data.photographer}</p> 
-              <p><span className='text-bold text-justify text'>Description:</span> {data.description}</p> 
+              <p><span className='text-bold text-justify'>Description:</span> {data.description}</p> 
               <p><span className='text-bold'>Keywords : </span>{Array.isArray(data.keywords) ? data.keywords.toString() : data.keywords}</p> 
               <p> <span className='text-bold'>Date :</span> {data.date_created}</p> 
             </div> 
-              <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen mt-8'/>
+            <img src={image} alt="Nasa Image" className='w-3/4 rounded-2xl items-center justify-center h-screen mt-8'/>
         </div>
     </div>
   )
