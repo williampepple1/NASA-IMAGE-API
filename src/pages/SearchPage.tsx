@@ -1,7 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon,  MagnifyingGlassIcon,  XMarkIcon } from '@heroicons/react/24/outline'
-import nasa from '../assets/nasa.png'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import DatePicker from "react-datepicker";
 import {toast} from 'react-toastify'
 import axios from 'axios';
@@ -9,10 +7,6 @@ import { Link } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner'
 import "react-datepicker/dist/react-datepicker.css";
 import Header from '../components/Header';
-const navigation = [
-  { name: 'NASA', href: '#' }
-]
-
 
 
 function SearchPage() {
