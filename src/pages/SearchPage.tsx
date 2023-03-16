@@ -16,9 +16,7 @@ function SearchPage() {
   const [searchquery, setSearchquery] = useState<string>('');
   const [loading, setLoading] = useState(false)
 
-  console.log(endYear.getFullYear())
-  console.log(startYear.getFullYear())
-  console.log(searchquery)
+
 
  
   const updateSearchquery = (e: ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +38,6 @@ function SearchPage() {
         return 0;
     }
     else{
-        console.log("fetch data")
         runSearch();
     }
 }
@@ -62,7 +59,6 @@ const runSearch = () => {
           fetchURL
       )
       .then(response => {
-          console.log(fetchURL)
           setCollections(response.data.collection.items);
           setLoading(false);
       })
