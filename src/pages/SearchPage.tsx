@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon,  MagnifyingGlassIcon,  XMarkIcon } from '@heroicons/react/24/outline'
 import nasa from '../assets/nasa.png'
@@ -27,23 +27,8 @@ function SearchPage() {
   console.log(startYear.getFullYear())
   console.log(searchquery)
 
-  // if (loading == true) {
-  //   return(
-  //    <div className='grid h-screen place-items-center'>
-  //     <ColorRing
-  //       visible={true}
-  //       height="100"
-  //       width="100"
-  //       ariaLabel="blocks-loading"
-  //       wrapperStyle={{}}
-  //       wrapperClass="blocks-wrapper"
-  //       colors={['#b8c480', '#B2A3B5', '#F4442E', '#51E5FF', '#429EA6']}
-  //       />
-  //    </div>
-  //   )
-  // }
-  
-  const updateSearchquery = (e: any) => {
+ 
+  const updateSearchquery = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchquery(e.target.value);
   }
 
@@ -87,7 +72,6 @@ const runSearch = () => {
           console.log(fetchURL)
           setCollections(response.data.collection.items);
           setLoading(false);
-          console.log(response.data.collection.items);
       })
       .catch(error => {
           console.log(
@@ -96,6 +80,24 @@ const runSearch = () => {
           );
       });
 }
+
+ if (loading == true) {
+    return(
+     <div className='grid h-screen place-items-center'>
+      <ColorRing
+        visible={true}
+        height="100"
+        width="100"
+        ariaLabel="blocks-loading"
+        wrapperStyle={{}}
+        wrapperClass="blocks-wrapper"
+        colors={['#b8c480', '#B2A3B5', '#F4442E', '#51E5FF', '#429EA6']}
+        />
+     </div>
+    )
+  }
+  
+
   return (
     <div className="bg-white ">
       <Header />
