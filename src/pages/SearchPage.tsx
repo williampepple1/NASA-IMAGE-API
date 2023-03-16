@@ -91,7 +91,7 @@ const runSearch = () => {
     <div className="bg-white ">
       <Header />
       <main className='h-screen'>
-       { collections.length  == 0 && (
+       { collections.length  == 0 ? (
           <div className="relative isolate overflow-hidden bg-gray-900 pt-14 pb-16 sm:pb-20">
           <img
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
@@ -236,37 +236,36 @@ const runSearch = () => {
             </svg>
           </div>
         </div>
-       )}
-          
-        
-        
+       ):
+      (
+         <div className='grid grid-cols-1 md:grid-cols-3 mt-16'>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 mt-16'>
+       {
+         collections.length > 0 ? 
+           collections.map((collection: any, index) => (
+             <div className='items-center justify-center'>
+             <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
+             key= {index}>
+             <img 
+               src={`${collection.links[0].href}?h=248&fit=crop&auto=format`}
+               srcSet={`${collection.links[0].href}?h=248&fit=crop&auto=format&dpr=2 2x`}
+               alt={collection.data[0].title}
+               loading='lazy'
+               className='rounded-lg h-64 my-2 mx-2'
+             />
+              <p className='mx-2 font-semibold'>{collection.data[0].title}</p>
+              <p> <span className='mx-2 font-semibold'>Location:</span> {collection.data[0].location}</p>
+              <p><span className='mx-2 font-semibold'>Photographer:</span> {collection.data[0].photographer}</p>
+             </Link>
+             </div>
+             
+           ))
+           : <div></div>  
+       }
 
-          {
-            collections.length > 0 ? 
-              collections.map((collection: any, index) => (
-                <div className='items-center justify-center'>
-                <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
-                key= {index}>
-                <img 
-                  src={`${collection.links[0].href}?h=248&fit=crop&auto=format`}
-                  srcSet={`${collection.links[0].href}?h=248&fit=crop&auto=format&dpr=2 2x`}
-                  alt={collection.data[0].title}
-                  loading='lazy'
-                  className='rounded-lg h-64 my-2 mx-2'
-                />
-                 <p className='mx-2 font-semibold'>{collection.data[0].title}</p>
-                 <p> <span className='mx-2 font-semibold'>Location:</span> {collection.data[0].location}</p>
-                 <p><span className='mx-2 font-semibold'>Photographer:</span> {collection.data[0].photographer}</p>
-                </Link>
-                </div>
-                
-              ))
-              : <div></div>  
-          }
-
-        </div>
+     </div>
+     )}       
+       
 
   
       </main>
