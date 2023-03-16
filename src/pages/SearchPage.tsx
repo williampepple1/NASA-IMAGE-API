@@ -264,8 +264,8 @@ const runSearch = () => {
              <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
              key= {index}>
              <img 
-               src={`${collection.links[0].href}?h=248&fit=crop&auto=format`}
-               srcSet={`${collection.links[0].href}?h=248&fit=crop&auto=format&dpr=2 2x`}
+               src={`${collection.links[0].href}`}
+               srcSet={`${collection.links[0].href}`}
                alt={collection.data[0].title}
                loading='lazy'
                className='rounded-lg h-64 my-2 mx-2'
