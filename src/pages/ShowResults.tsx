@@ -3,14 +3,6 @@ import {Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
 
-type collectionDataType = {
-  photographer: string;
-  location: string;
-  title: string;
-  description: string;
-  date_created: string;
-  keywords: string[];
-}
 
 function ShowResults(props: any) {
   const location = useLocation()
