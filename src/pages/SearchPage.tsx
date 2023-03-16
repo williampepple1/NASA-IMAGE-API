@@ -258,6 +258,8 @@ const runSearch = () => {
                   className='rounded-lg h-64 my-2 mx-2'
                 />
                  <p className='mx-2 font-semibold'>{collection.data[0].title}</p>
+                 <p> <span className='mx-2 font-semibold'>Location:</span> {collection.data[0].location}</p>
+                 <p><span className='mx-2 font-semibold'>Photographer:</span> {collection.data[0].photographer}</p>
                 </Link>
                 
               ))
