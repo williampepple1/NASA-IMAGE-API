@@ -241,8 +241,8 @@ const runSearch = () => {
       <div className='flex flex-col my-16'>
           <div className="flex flex-col justify-center mx-auto">
                 <div className='flex flex-row my-4 mx-auto justify-between'>
-                 <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md mx-2'/>
-                 <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md mx-2'/>
+                 <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md mx-2 w-3/4 md:mx-6'/>
+                 <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md mx-2 w-3/4 md:mx-6'/>
                  </div>
                  <div className='flex flex-row my-4 mx-auto justify-between'>
                   <input className='text-black rounded-lg mx-4 focus-within:text-gray-800' name='search' placeholder='Search for images'   value={searchquery}
@@ -268,7 +268,7 @@ const runSearch = () => {
                srcSet={`${collection.links[0].href}`}
                alt={collection.data[0].title}
                loading='lazy'
-               className='rounded-lg h-64 my-2 mx-2'
+               className='rounded-lg h-64 my-2 mx-auto'
              />
               <p className='mx-2 font-semibold'>{collection.data[0].title}</p>
               <p> <span className='mx-2 font-semibold'>Location:</span> {collection.data[0].location}</p>
