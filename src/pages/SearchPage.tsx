@@ -240,33 +240,21 @@ const runSearch = () => {
       (
       <div className='flex flex-col my-16'>
           <div className="flex flex-col justify-center mx-auto">
-                <div className='flex flex-row my-4 mx-auto items-center justify-center'>
+                <div className='flex flex-row my-4 mx-auto p-2 items-center justify-center'>
                  <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md w-1/2'/>
                  <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md w-1/2'/>
                  </div>
-                    <div className="w-full px-2 lg:px-6 flex flex-row justify-around mx-auto">
-                      <div className=" text-black focus-within:text-gray-800">
-                        <input
-                          id="search"
-                          name="search"
-                          className="block rounded-md border-0 bg-indigo-400 bg-opacity-25 py-1.5 pl-10 pr-3 text-black-100 placeholder:text-black focus:bg-white focus:text-gray-900 focus:outline-none focus:ring-0 focus:placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                          placeholder="Search for Images"
-                          type="text"
-                          value={searchquery}
-                          onChange={updateSearchquery}
-                          required
-                        />
-                      </div>
+                 <div className='flex flex-row my-4 mx-auto justify-between'>
+                  <input className='text-black rounded-lg mx-4 focus-within:text-gray-800' name='search' placeholder='Search for images'   value={searchquery}
+                          onChange={updateSearchquery} type='text'/>
+                  <button
+                  type='button'
+                  onClick={validateSearch}
+                  className='rounded-md bg-black bg-opacity-40  px-3 py-1.5 text-indigo-100 text-center'
+                  >Search</button>
 
-                      <button
-                      type="button"
-                      className='rounded-md bg-indigo-400 py-1.5 px-8 text-indigo-100 text-center flex items-center justify-center'
-                      onClick={validateSearch}
-                      >
-                      Search
-                      </button>
-                     
-                    </div>              
+                 </div>
+                                  
           </div>
          <div className='grid grid-cols-1 md:grid-cols-3 mt-16'>
        {
