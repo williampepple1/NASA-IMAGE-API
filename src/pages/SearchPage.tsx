@@ -95,7 +95,7 @@ const runSearch = () => {
     <div className="bg-white ">
       <Header />
       <main className='h-screen'>
-        {collections.length === 0 &&
+       
           <div className="relative isolate overflow-hidden bg-gray-900 pt-14 pb-16 sm:pb-20">
           <img
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
@@ -240,7 +240,7 @@ const runSearch = () => {
             </svg>
           </div>
         </div>
-        }
+        
         
 
         <div className='grid grid-cols-1 md:grid-cols-3 mt-16'>
