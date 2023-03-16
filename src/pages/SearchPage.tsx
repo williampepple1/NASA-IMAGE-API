@@ -241,11 +241,11 @@ const runSearch = () => {
         
         
 
-        <div className='grid grid-cols-1 md:grid-cols-3 mt-16'>
-
+  
           {
             collections.length > 0 ? 
               collections.map((collection: any, index) => (
+                <div className='grid grid-cols-1 md:grid-cols-3 mt-16 items-center justify-center'>
                 <Link to="/search-results" state = {{data : collection.data[0], jsonURL: collection.href }} 
                 key= {index}>
                 <img 
@@ -259,12 +259,11 @@ const runSearch = () => {
                  <p> <span className='mx-2 font-semibold'>Location:</span> {collection.data[0].location}</p>
                  <p><span className='mx-2 font-semibold'>Photographer:</span> {collection.data[0].photographer}</p>
                 </Link>
+                </div>
                 
               ))
               : <div></div>  
           }
-
-        </div>
 
   
       </main>
