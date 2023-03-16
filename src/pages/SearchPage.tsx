@@ -255,8 +255,9 @@ const runSearch = () => {
                   srcSet={`${collection.links[0].href}?h=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={collection.data[0].title}
                   loading='lazy'
-                  className='rounded-lg h-64 my-2'
+                  className='rounded-lg h-64 my-2 mx-2'
                 />
+                 <p className='mx-2 font-semibold'>{collection.data[0].title}</p>
                 </Link>
                 
               ))
