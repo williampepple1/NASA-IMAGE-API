@@ -240,9 +240,9 @@ const runSearch = () => {
       (
       <div className='flex flex-col my-16'>
           <div className="flex flex-col justify-center mx-auto">
-                <div className='flex flex-row my-4 mx-auto p-2 items-center justify-center'>
-                 <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md w-1/2'/>
-                 <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md w-1/2'/>
+                <div className='flex flex-row my-4 mx-auto items-center justify-center'>
+                 <DatePicker selected={startYear} onChange={(date) => date && setStartYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md'/>
+                 <DatePicker selected={endYear} onChange={(date) => date && setEndYear(date)} showYearPicker dateFormat="yyyy" className='rounded-md '/>
                  </div>
                  <div className='flex flex-row my-4 mx-auto justify-between'>
                   <input className='text-black rounded-lg mx-4 focus-within:text-gray-800' name='search' placeholder='Search for images'   value={searchquery}
